@@ -28,7 +28,7 @@ cleanall:
 	docker-compose rm -svf work
 	docker-compose rm -svf build_test
 	docker-compose rm -svf qemu_ptest
-	docker volume rm -f docker_downloads
-	docker rmi -f deby-image
+	docker volume rm -f downloads_${USER}
+	docker rmi -f deby-${USER}
 
 .PHONY: refresh start test build_test qemu_ptest clean cleanall

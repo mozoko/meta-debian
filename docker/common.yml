@@ -7,7 +7,7 @@ services:
         http_proxy: $http_proxy
         UID: ${UID:-1000}
         BUILDDIR: ${BUILDDIR:-build}
-    image: deby-image
+    image: deby-image-${USER}
     environment:
       http_proxy: $http_proxy
       https_proxy: $https_proxy
@@ -21,6 +21,7 @@ services:
     volumes:
       - ../:/home/deby/poky/meta-debian
       - downloads:/home/deby/downloads
+      - ../../build:/home/deby/build
     devices:
       - /dev/net/tun:/dev/net/tun
     cap_add:
